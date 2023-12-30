@@ -20,9 +20,23 @@ class App extends React.Component {
     });
   };
 
+  countTotalFeedback = () => {
+    return Object.values(this.state).reduce(
+      (value, amount) => value + amount,
+      0
+    );
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    return Math.round((this.state.good / this.countTotalFeedback()) * 100);
+  };
+
   render() {
     const { good, neutral, bad } = this.state;
     const options = Object.keys(this.state);
+    const totalFeedback = this.countTotalFeedback();
+    const positiveFeedbackPercentage = this.countPositiveFeedbackPercentage();
+
     return (
       <div className={css.containerFeedback}>
         <h1 className={`${css.titleFeedback} ${css.visuallyHidden}`}>
@@ -35,7 +49,13 @@ class App extends React.Component {
           />
         </Section>
         <Section title="Statistics">
-          <Statistics good={good} neutral={neutral} bad={bad} />
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={totalFeedback}
+            positivePercentage={positiveFeedbackPercentage}
+          />
         </Section>
       </div>
     );
