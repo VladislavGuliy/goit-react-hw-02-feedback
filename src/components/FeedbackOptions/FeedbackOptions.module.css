@@ -1,0 +1,25 @@
+.feedbackOptions__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 24px;
+  margin-bottom: 30px;
+}
+
+.feedbackOptions__button {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: var(--navy-color);
+  color: var(--white-color);
+  cursor: pointer;
+  box-shadow: inset 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+}
+
+.feedbackOptions__button:hover,
+.feedbackOptions__button:active {
+  transform: translateY(2px);
+  box-shadow: inset 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}
