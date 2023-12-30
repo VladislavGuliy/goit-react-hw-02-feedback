@@ -2,6 +2,7 @@ import React from 'react';
 import Section from '../Section';
 import FeedbackOptions from '../FeedbackOptions';
 import Statistics from '../Statistics';
+import Notification from '../Notification';
 
 import css from './App.module.css';
 
@@ -38,8 +39,8 @@ class App extends React.Component {
     const positiveFeedbackPercentage = this.countPositiveFeedbackPercentage();
 
     return (
-      <div className={css.containerFeedback}>
-        <h1 className={`${css.titleFeedback} ${css.visuallyHidden}`}>
+      <div className={css.feedback__container}>
+        <h1 className={`${css.feedback__title} ${css.visually__hidden}`}>
           Customer reviews of Cafe Expresso
         </h1>
         <Section title="Please leave feedback">
@@ -49,13 +50,17 @@ class App extends React.Component {
           />
         </Section>
         <Section title="Statistics">
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={totalFeedback}
-            positivePercentage={positiveFeedbackPercentage}
-          />
+          {totalFeedback === 0 ? (
+            <Notification message="There is no feedback" />
+          ) : (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={totalFeedback}
+              positivePercentage={positiveFeedbackPercentage}
+            />
+          )}
         </Section>
       </div>
     );

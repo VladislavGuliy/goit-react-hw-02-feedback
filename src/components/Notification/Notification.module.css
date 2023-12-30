@@ -1,0 +1,4 @@
+.notification__message {
+  font-size: 24px;
+  color: var(--fuchsia-color);
+}

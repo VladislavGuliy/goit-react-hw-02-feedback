@@ -1,9 +1,9 @@
-.containerFeedback {
+.feedback__container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 480px;
+  width: 360px;
   margin: 20px auto 0 auto;
   padding: 10px;
   background-color: var(--skyBlue-color);
@@ -12,11 +12,11 @@
     0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.titleFeedback {
-  color: red;
+.feedback__title {
+  color: var(--fuchsia-color);
 }
 
-.visuallyHidden {
+.visually__hidden {
   position: absolute;
   width: 1px;
   height: 1px;
